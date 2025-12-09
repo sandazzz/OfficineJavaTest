@@ -15,7 +15,7 @@ public class OfficineTest {
     @Test
     void casUsuel_rentrerEtQuantite_singulierPluriel() {
         assertEquals(0, off.quantite("œil de grenouille"));
-        off.rentrer("3 yeux de grenouille");
+        off.rentrer("3 yeux de grenouioolle");
         assertEquals(3, off.quantite("œil de grenouille"));
         assertEquals(3, off.quantite("yeux de grenouille"));
         off.rentrer("2 œil de grenouille"); // tolère singulier après un nombre
