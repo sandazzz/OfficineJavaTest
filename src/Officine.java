@@ -1,4 +1,3 @@
-import java.text.Normalizer;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -39,16 +38,16 @@ public class Officine {
     public Officine() {
         // ----- Définition des ingrédients -----
         // Liste fournie (on ajoute explicitement les formes singulier/pluriel utiles).
-        String[] ingredients = new String[] {
-                "œil de grenouille", // singulier
-                "yeux de grenouille", // pluriel irrégulier
-                "larme de brume funèbre",
-                "radicelle de racine hurlante",
-                "pincée de poudre de lune",
-                "croc de troll",
-                "fragment d'écaille de dragonnet",
-                "goutte de sang de citrouille"
-        };
+        // String[] ingredients = new String[] {
+        //         "œil de grenouille", // singulier
+        //         "yeux de grenouille", // pluriel irrégulier
+        //         "larme de brume funèbre",
+        //         "radicelle de racine hurlante",
+        //         "pincée de poudre de lune",
+        //         "croc de troll",
+        //         "fragment d'écaille de dragonnet",
+        //         "goutte de sang de citrouille"
+        // };
 
         // On choisit comme canoniques les formes singulières suivantes (y compris
         // l'irrégulier œil/yeux)
@@ -74,7 +73,7 @@ public class Officine {
         // ----- Définition des potions & recettes -----
         // Recettes fournies
         Map<String, String[]> r = new LinkedHashMap<>();
-        
+
         r.put("fiole de glaires purulentes",
                 new String[] { "2 larmes de brume funèbre", "1 goutte de sang de citrouille" });
         r.put("bille d'âme évanescente",

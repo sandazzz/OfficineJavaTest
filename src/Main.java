@@ -2,14 +2,22 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Officine o = new Officine();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        o.rentrer("5 larmes de brume funèbre");
+        o.rentrer("2 gouttes de sang de citrouille");
+
+        System.out.println("Avant :");
+        System.out.println("larmes = " + o.quantite("larme de brume funèbre"));
+        System.out.println("sang = " + o.quantite("goutte de sang de citrouille"));
+
+        int faites = o.preparer("2 fioles de glaires purulentes");
+        System.out.println("Préparé : " + faites);
+
+        System.out.println("Après :");
+        System.out.println("larmes = " + o.quantite("larme de brume funèbre"));
+        System.out.println("sang = " + o.quantite("goutte de sang de citrouille"));
+        System.out.println("fioles = " + o.quantite("fiole de glaires purulentes"));
     }
+
 }
