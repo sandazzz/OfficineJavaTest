@@ -39,14 +39,14 @@ public class Officine {
         // ----- Définition des ingrédients -----
         // Liste fournie (on ajoute explicitement les formes singulier/pluriel utiles).
         // String[] ingredients = new String[] {
-        //         "œil de grenouille", // singulier
-        //         "yeux de grenouille", // pluriel irrégulier
-        //         "larme de brume funèbre",
-        //         "radicelle de racine hurlante",
-        //         "pincée de poudre de lune",
-        //         "croc de troll",
-        //         "fragment d'écaille de dragonnet",
-        //         "goutte de sang de citrouille"
+        // "œil de grenouille", // singulier
+        // "yeux de grenouille", // pluriel irrégulier
+        // "larme de brume funèbre",
+        // "radicelle de racine hurlante",
+        // "pincée de poudre de lune",
+        // "croc de troll",
+        // "fragment d'écaille de dragonnet",
+        // "goutte de sang de citrouille"
         // };
 
         // On choisit comme canoniques les formes singulières suivantes (y compris
@@ -219,25 +219,10 @@ public class Officine {
 
     private String toCanonique(String nom) {
         String key = canon(nom);
-        // Essayer alias direct
+        // Alias connus (singulier/pluriel/variantes)
         String canon = aliasVersCanonique.get(key);
         if (canon != null)
             return canon;
-
-        // Heuristic : si finit par 's' on tente la version singulière en retirant un
-        // 's' sur le premier mot
-        // (utile si un test ajoute un item pluriel simple non répertorié
-        // explicitement).
-        if (key.endsWith("s")) {
-            // première tentative : retirer 's' global (rarement correct pour les composés)
-            String tentative = key.substring(0, key.length() - 1);
-            if (aliasVersCanonique.containsKey(tentative)) {
-                return aliasVersCanonique.get(tentative);
-            }
-        }
-        if (!itemsConnus.contains(key)) {
-            throw new IllegalArgumentException("Item inconnu : " + nom);
-        }
         return key;
     }
 
